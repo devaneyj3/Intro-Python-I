@@ -1,24 +1,41 @@
+    ## TODO Compete Args
+
 # Experiment with positional arguments, arbitrary arguments, and keyword
 # arguments.
 
 # Write a function f1 that takes two integer positional arguments and returns
 # the sum. This is what you'd consider to be a regular, normal function.
 
-# YOUR CODE HERE
+def f1(arg1, arg2):
+    sum = arg1 + arg2
+    return sum
+    
 
+# YOUR CODE HERE
+print('\nargs: 1\n')
 print(f1(1, 2))
+print('\n')
 
 # Write a function f2 that takes any number of integer arguments and returns the
 # sum.
 # Note: Google for "python arbitrary arguments" and look for "*args"
 
+def f2(*args):
+    return sum(args)
+    # return sum(args)
+    # my_sum = 0
+    # for arg in args:
+    #     my_sum += arg
+    # return my_sum
+
 # YOUR CODE HERE
 
+print('\n')
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
 print(f2(1, 4, -12))            # Should print -7
 print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33
-
+print('\n')
 a = [7, 6, 5, 4]
 
 # How do you have to modify the f2 call below to make this work?

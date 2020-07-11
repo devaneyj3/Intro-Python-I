@@ -3,4 +3,4 @@
 import math
 # YOUR CODE HERE
 
-print(math.pow(65536, 2))
+print(2 ** 65336)
