@@ -1,4 +1,4 @@
-## TODO: CALENDER
+
 """
 The Python standard library's 'calendar' module allows you to
 render a calendar to your terminal.
@@ -31,22 +31,50 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
-# - If the user doesn't specify any input, your program should
-#   print the calendar for the current month. The 'datetime'
-#    module may be helpful for this.
-#  - If the user specifies one argument, assume they passed in a
-#   month and render the calendar for that month of the current year.
-#  - If the user specifies two arguments, assume they passed in
-#   both the month and the year. Render the calendar for that
-#    month and year.
-#  - Otherwise, print a usage statement to the terminal indicating
+
+
+
+def calendar1():
+  
+  
+  if(len(sys.argv) == 1):
+      now = datetime.now()
+      month = now.strftime("%B")
+      print('The current month is, ', month)
+  elif (len(sys.argv) == 2):
+      # get current year
+      now = datetime.now()
+      year = now.strftime("%Y")
+      year = int(year)
+      
+      month_input = sys.argv[1]
+      
+      # Get month number of the argument passed in
+      month_object = datetime.strptime(month_input, "%B")
+      monthNum = month_object.month
+      monthNum = int(monthNum)
+      print('\n')
+      print(calendar.month(year, monthNum))
+  elif(len(sys.argv) == 3):
+      month_input = sys.argv[1]
+      year_input = sys.argv[2]
+
+      # Get month number of the argument passed in
+      month_object = datetime.strptime(month_input, "%B")
+      year_object = datetime.strptime(year_input, "%Y")
+      
+      monthNum = month_object.month
+      yearNum = year_object.year
+      
+      yearNum = int(yearNum)
+      monthNum = int(monthNum)
+      
+      print('\n')
+      print(calendar.month(yearNum, monthNum))
+      #  - Otherwise, print a usage statement to the terminal indicating
 #   the format that your program expects arguments to be given.
 #    Then exit the program.
+  else:
+    print("You must give two arguments: a month as a string and an int for year, in that order")
 
-def calendar():
-  
-  if(month_input == '' and year_input == ''):
-    return datetime.now().month
-    
-
-calendar()
+calendar1()
