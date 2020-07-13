@@ -10,9 +10,9 @@ https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 
 For this exercise, you have a list of dictionaries. Each dictionary
 has the following keys:
- - lat: a signed integer representing a latitude value
- - lon: a signed integer representing a longitude value
- - name: a name string for this location
+    - lat: a signed integer representing a latitude value
+    - lon: a signed integer representing a longitude value
+    - name: a name string for this location
 """
 
 waypoints = [
@@ -35,13 +35,24 @@ waypoints = [
 
 # Add a new waypoint to the list
 # YOUR CODE HERE
+waypoints.append({"lat": 111,"lon": -22,"name": "a fourth place"})
+print('\n')
+print(waypoints)
+print('\n')
 
 # Modify the dictionary with name "a place" such that its longitude
 # value is -130 and change its name to "not a real place"
 # Note: It's okay to access the dictionary using bracket notation on the
 # waypoints list.
-
+waypoints[0]['name'] = 'not a real place'
+waypoints[0]['lon'] = -130
+print('\n')
+print(waypoints[0])
+print('\n')
 # YOUR CODE HERE
 
 # Write a loop that prints out all the field values for all the waypoints
+for item in waypoints:
+    for value in item.values():
+        print(value)
 # YOUR CODE HERE
